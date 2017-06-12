@@ -107,7 +107,7 @@ specified, the sorting will be performed according to the locale aware settings.
 
   $result = sorted($list, reverse => 1); # $list will be sorted in descending order
 
-  $result = sorted($list, locale => 'en_US.utf8'); # $list will be sorted according to en_US.utf8 locale
+  $result = sorted($list, locale => 'en-US-u-va-posix'); # $list will be sorted according to US POSIX-like locale
 ```
 
 ## LOCALE AWARE SORTING
@@ -142,22 +142,20 @@ and `setlocale` has no effect on `ncmp` and `nsort`. The following example demon
 ```
 
 To be able to sort a list with an arbitrary locale it is necessary to use the `sorted` function with a `locale` keyword
-argument:
+argument. `locale` should be LDML locale identifier:
 
 ```perl
   use Sort::Naturally::ICU qw/sorted/;
 
   my $list = ['a.'.'c', 'A'..'B'];
 
-  my $result_us = sorted($list, locale => 'en_US.utf8');
-  # $result_us contains a, A, b, B, c, C
+  my $result_us = sorted($list, locale => 'en-US-u-va-posix');
+  # $result_us contains A, B, C, a, b, c
 
-  my $result_ca = sorted($list, locale => 'en_CA.utf8');
-  # $result_ca contains A, a, B, b, C, c
+  my $result_ca = sorted($list, locale => 'en-CA-u-va-posix');
+  # $result_ca contains a, A, b, B, c, C
 ```
 
-Note: due to the complexity of a cross-platform support, a locale aware sorting is guaranteed on Unix-like operating
-systems only.
 
 ## EXPORT
 
@@ -168,9 +166,6 @@ By default the module exports `ncmp` and `nsort` subroutines.
 * There are differences in sorting outcomes compared with the `Sort::Naturally` module. Capital letters always come
 before lower case letters, digits always come before letters.
 * Due to a significant strain it is not recommended for sorting lists consisting of letters or digits only.
-* Due to the complexity of a cross-platform support, a locale aware sorting is guaranteed on Unix-like operating systems
-only.
-* Windows support added in ver. 0.7.6
 
 ## SEE ALSO
 
