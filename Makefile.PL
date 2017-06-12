@@ -6,11 +6,11 @@ use ExtUtils::MakeMaker;
 # See lib/ExtUtils/MakeMaker.pm for details of how to influence
 # the contents of the Makefile that is written.
 WriteMakefile(
-	NAME         => 'Sort::Naturally::XS',
-	VERSION_FROM => 'lib/Sort/Naturally/XS.pm', # finds $VERSION
+	NAME         => 'Sort::Naturally::ICU',
+	VERSION_FROM => 'lib/Sort/Naturally/ICU.pm', # finds $VERSION
 	PREREQ_PM    => {}, # e.g., Module::Name => 1.1
 	($] >= 5.005                                ? ## Add these new keywords supported since 5.005
-		(ABSTRACT_FROM => 'lib/Sort/Naturally/XS.pm', # retrieve abstract from module
+		(ABSTRACT_FROM => 'lib/Sort/Naturally/ICU.pm', # retrieve abstract from module
 			AUTHOR     => 'Sergey Yurzin <jurzin.s@gmail.com>') : ()),
 	LIBS         => is_mac_os() ? '-L/usr/local/opt/icu4c/lib' : '',
 	DEFINE       => '', # e.g., '-DHAVE_SOMETHING'
@@ -27,11 +27,11 @@ WriteMakefile(
 		resources   => {
 			repository => {
 				type => 'git',
-				url  => 'https://github.com/CaballerosTeam/Sort-Naturally-XS.git',
-				web  => 'https://github.com/CaballerosTeam/Sort-Naturally-XS',
+				url  => 'https://github.com/CaballerosTeam/Sort-Naturally-ICU.git',
+				web  => 'https://github.com/CaballerosTeam/Sort-Naturally-ICU',
 			},
 			bugtracker => {
-				web    => 'https://github.com/CaballerosTeam/Sort-Naturally-XS/issues',
+				web    => 'https://github.com/CaballerosTeam/Sort-Naturally-ICU/issues',
 				mailto => 'jurzin.s@gmail.com',
 			},
 		},
@@ -47,7 +47,7 @@ if (eval {
 	# changes.
 	my @names = (qw());
 	ExtUtils::Constant::WriteConstants(
-		NAME         => 'Sort::Naturally::XS',
+		NAME         => 'Sort::Naturally::ICU',
 		NAMES        => \@names,
 		DEFAULT_TYPE => 'IV',
 		C_FILE       => 'const-c.inc',

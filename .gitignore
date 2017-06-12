@@ -108,4 +108,4 @@ CMakeLists.txt
 
 _Deparsed_XSubs.pm
 t/local/
-XS.c
+ICU.c

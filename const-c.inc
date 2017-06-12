@@ -40,11 +40,11 @@ my $types = {map {($_, 1)} qw()};
 my @names = (qw());
 
 print constant_types(), "\n"; # macro defs
-foreach (C_constant ("Sort::Naturally::XS", 'constant', 'IV', $types, undef, 3, @names) ) {
+foreach (C_constant ("Sort::Naturally::ICU", 'constant', 'IV', $types, undef, 3, @names) ) {
     print $_, "\n"; # C constant subs
 }
 print "\n#### XS Section:\n";
-print XS_constant ("Sort::Naturally::XS", $types);
+print XS_constant ("Sort::Naturally::ICU", $types);
 __END__
    */
 

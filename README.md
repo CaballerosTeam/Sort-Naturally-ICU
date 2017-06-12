@@ -1,6 +1,7 @@
 ## NAME
 
-Sort::Naturally::XS - Perl extension for human-friendly ("natural") sort order
+Sort::Naturally::ICU - Perl extension for human-friendly ("natural") sort order, which using ICU library for locale
+aware sorting.
 
 ## INSTALL
 
@@ -23,7 +24,7 @@ or for Windows:
 ## SYNOPSIS
 
 ```perl
-  use Sort::Naturally::XS;
+  use Sort::Naturally::ICU;
 
   my @mixed_list = qw/test21 test20 test10 test11 test2 test1/;
 
@@ -33,7 +34,7 @@ or for Windows:
 
   @result = sort {ncmp($a, $b)} @mixed_list; # same as ncmp, but argument pass explicitly
   
-  my $result = Sort::Naturally::XS::sorted(\@mixed_list, locale => 'ru_RU.utf8'); # pass custom locale
+  my $result = Sort::Naturally::ICU::sorted(\@mixed_list, locale => 'ru_RU.utf8'); # pass custom locale
 ```
 
 ## DESCRIPTION
@@ -100,7 +101,7 @@ such as `reverse` and `locale`. If `reverse` is true the source list is sorted i
 specified, the sorting will be performed according to the locale aware settings.
 
 ```perl
-  use Sort::Naturally::XS qw/sorted/;
+  use Sort::Naturally::ICU qw/sorted/;
 
   my $result = sorted($list);
 
@@ -117,7 +118,7 @@ and `setlocale` has no effect on `ncmp` and `nsort`. The following example demon
 
 ```perl
   use POSIX;
-  use Sort::Naturally::XS;
+  use Sort::Naturally::ICU;
 
   my @list = ('a.'.'c', 'A'..'B');
 
@@ -144,7 +145,7 @@ To be able to sort a list with an arbitrary locale it is necessary to use the `s
 argument:
 
 ```perl
-  use Sort::Naturally::XS qw/sorted/;
+  use Sort::Naturally::ICU qw/sorted/;
 
   my $list = ['a.'.'c', 'A'..'B'];
 
@@ -173,8 +174,7 @@ only.
 
 ## SEE ALSO
 
-* [module on PrePAN](http://prepan.org/module/nYcMhBVby72)
-* [module on CPAN](http://search.cpan.org/dist/Sort-Naturally-XS/lib/Sort/Naturally/XS.pm)
+* [module on CPAN](http://search.cpan.org/dist/Sort-Naturally-ICU/lib/Sort/Naturally/ICU.pm)
 
 ## AUTHOR
 

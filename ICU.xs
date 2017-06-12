@@ -46,7 +46,7 @@ S_sv_ncoll_reverse(pTHX_ SV *a, SV *b)
     return _ncmp(ia, ib, 1, collator);
 }
 
-MODULE = Sort::Naturally::XS		PACKAGE = Sort::Naturally::XS		
+MODULE = Sort::Naturally::ICU		PACKAGE = Sort::Naturally::ICU
 
 INCLUDE: const-xs.inc
 

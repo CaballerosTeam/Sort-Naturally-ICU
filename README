@@ -1,9 +1,10 @@
-Sort-Naturally-XS version 0.7.7
-===============================
+Sort-Naturally-ICU version 0.0.1
+================================
 
 DESCRIPTION
 
-Sort::Naturally::XS - Perl extension for human-friendly ("natural") sort order.
+Sort::Naturally::ICU - Perl extension for human-friendly ("natural") sort order, which using ICU library for locale
+aware sorting.
 
 Natural sort order is an ordering of mixed strings (consist of characters and digits) in alphabetical order, except that
 digital parts are ordered as numbers. Natural sorting can be considered as a replacement of a standard machine-oriented

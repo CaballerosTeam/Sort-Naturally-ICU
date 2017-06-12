@@ -21,12 +21,12 @@ constant(sv)
         switch (type) {
         case PERL_constant_NOTFOUND:
           sv =
-	    sv_2mortal(newSVpvf("%s is not a valid Sort::Naturally::XS macro", s));
+	    sv_2mortal(newSVpvf("%s is not a valid Sort::Naturally::ICU macro", s));
           PUSHs(sv);
           break;
         case PERL_constant_NOTDEF:
           sv = sv_2mortal(newSVpvf(
-	    "Your vendor has not defined Sort::Naturally::XS macro %s, used",
+	    "Your vendor has not defined Sort::Naturally::ICU macro %s, used",
 				   s));
           PUSHs(sv);
           break;
@@ -83,7 +83,7 @@ constant(sv)
           break; */
         default:
           sv = sv_2mortal(newSVpvf(
-	    "Unexpected return type %d while processing Sort::Naturally::XS macro %s, used",
+	    "Unexpected return type %d while processing Sort::Naturally::ICU macro %s, used",
                type, s));
           PUSHs(sv);
         }

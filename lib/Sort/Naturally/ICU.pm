@@ -1,4 +1,4 @@
-package Sort::Naturally::XS;
+package Sort::Naturally::ICU;
 
 use 5.010001;
 use strict;
@@ -17,7 +17,7 @@ our @EXPORT_OK = qw/sorted/;
 our $VERSION = '0.8.0';
 
 require XSLoader;
-XSLoader::load('Sort::Naturally::XS', $VERSION);
+XSLoader::load('Sort::Naturally::ICU', $VERSION);
 
 sub sorted {
     my ($ar, %kwargs) = @_;
@@ -44,11 +44,11 @@ __END__
 
 =head1 NAME
 
-Sort::Naturally::XS - Perl extension for human-friendly ("natural") sort order
+Sort::Naturally::ICU - Perl extension for human-friendly ("natural") sort order
 
 =head1 SYNOPSIS
 
-  use Sort::Naturally::XS;
+  use Sort::Naturally::ICU;
 
   my @mixed_list = qw/test21 test20 test10 test11 test2 test1/;
 
@@ -109,7 +109,7 @@ Returns an ARRAY ref to a sorted list. First argument is an ARRAY ref to the sou
 such as C<reverse> and C<locale>. If C<reverse> is true the source list is sorted in reverse order. If C<locale> is
 specified, the sorting will be performed according to the locale aware settings.
 
-  use Sort::Naturally::XS qw/sorted/;
+  use Sort::Naturally::ICU qw/sorted/;
 
   my $result = sorted($list);
 
@@ -128,7 +128,7 @@ according to OS settings, which can be changed with the help of the C<setlocale>
 and C<setlocale> has no effect on C<ncmp> and C<nsort>. The following example demonstrates this behavior:
 
   use POSIX;
-  use Sort::Naturally::XS;
+  use Sort::Naturally::ICU;
 
   my @list = ('a.'.'c', 'A'..'B');
 
@@ -153,7 +153,7 @@ and C<setlocale> has no effect on C<ncmp> and C<nsort>. The following example de
 To be able to sort a list with an arbitrary locale it is necessary to use the C<sorted> function with a C<locale>
 keyword argument:
 
-  use Sort::Naturally::XS qw/sorted/;
+  use Sort::Naturally::ICU qw/sorted/;
 
   my $list = ['a.'.'c', 'A'..'B'];
 
@@ -175,7 +175,7 @@ By default the module exports C<ncmp> and C<nsort> subroutines.
 =head1 BENCHMARK
 
   require Benchmark;
-  require Sort::Naturally::XS;
+  require Sort::Naturally::ICU;
   require Sort::Naturally;
 
   my @list = (
@@ -188,7 +188,7 @@ By default the module exports C<ncmp> and C<nsort> subroutines.
   );
 
   Benchmark::cmpthese(-3, {
-      my => sub { Sort::Naturally::XS::nsort(@list) },
+      my => sub { Sort::Naturally::ICU::nsort(@list) },
       other => sub { Sort::Naturally::nsort(@list) },
   });
 
@@ -199,7 +199,7 @@ By default the module exports C<ncmp> and C<nsort> subroutines.
   Benchmark::cmpthese(-10, {
       std   => sub { sort @list },
       other => sub { sort {Sort::Naturally::ncmp($a, $b)} @list },
-      my    => sub { sort {Sort::Naturally::XS::ncmp($a, $b)} @list },
+      my    => sub { sort {Sort::Naturally::ICU::ncmp($a, $b)} @list },
   });
 
   #            Rate other   std    my
@@ -216,7 +216,7 @@ By default the module exports C<ncmp> and C<nsort> subroutines.
 before lower case letters, digits always come before letters.
 
   9x 14 foo fooa foolio Foolio foo12 foo12a Foo12a foo12z foo13a # Sort::Naturally
-  9x 14 Foo12a Foolio foo foo12 foo12a foo12z foo13a fooa foolio # Sort::Naturally::XS
+  9x 14 Foo12a Foolio foo foo12 foo12a foo12z foo13a fooa foolio # Sort::Naturally::ICU
 
 =item Due to a significant overhead it is not recommended for sorting lists consisting of letters or digits only.
 
@@ -229,7 +229,7 @@ systems only.
 
 =head1 SEE ALSO
 
-L<Module repository|https://github.com/CaballerosTeam/Sort-Naturally-XS>
+L<Module repository|https://github.com/CaballerosTeam/Sort-Naturally-ICU>
 
 =head1 AUTHOR
 

@@ -1,11 +1,11 @@
-lib/Sort/Naturally/XS.pm
+lib/Sort/Naturally/ICU.pm
 src/Makefile.PL
 src/nsort.c
 src/nsort.h
-t/Sort-Naturally-XS.t
-t/Sort-Naturally-XS-ncmp.t
-t/Sort-Naturally-XS-nsort.t
-t/Sort-Naturally-XS-sorted.t
+t/Sort-Naturally-ICU.t
+t/Sort-Naturally-ICU-ncmp.t
+t/Sort-Naturally-ICU-nsort.t
+t/Sort-Naturally-ICU-sorted.t
 Changes
 const-c.inc
 const-xs.inc
@@ -15,4 +15,4 @@ ppport.h
 README
 README.md
 typemap
-XS.xs
+ICU.xs
