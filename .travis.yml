@@ -12,4 +12,4 @@ os:
   - linux
 before_install:
   - sudo apt-get -qq update
-  - sudo apt-get -y install gcc make pkg-config icu-devtools libicu-dev
+  - sudo apt-get -y install gcc make pkg-config libicu-dev
