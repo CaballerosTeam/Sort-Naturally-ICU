@@ -1,3 +1,7 @@
+# Sort-Naturally-ICU
+
+[![Build Status](https://travis-ci.org/CaballerosTeam/Sort-Naturally-ICU.svg?branch=master)](https://travis-ci.org/CaballerosTeam/Sort-Naturally-ICU)
+
 ## NAME
 
 Sort::Naturally::ICU - Perl extension for human-friendly ("natural") sort order, which using ICU library for locale
