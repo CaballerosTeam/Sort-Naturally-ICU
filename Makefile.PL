@@ -19,7 +19,11 @@ WriteMakefile(
 	# OBJECT            => '$(O_FILES)', # link all the C files too
 	MYEXTLIB     => 'src/libnsort$(LIB_EXT)',
 	OPTIMIZE     => '-O3',
-	LDDLFLAGS    => $ExtUtils::MakeMaker::Config::Config{lddlflags}.' `pkg-config --libs --cflags icu-uc icu-io`',
+	LDDLFLAGS    => join(' ',
+		$ExtUtils::MakeMaker::Config::Config{ccdlflags}.',--no-as-needed',
+		$ExtUtils::MakeMaker::Config::Config{lddlflags},
+		'`pkg-config --libs --cflags icu-uc icu-io`',
+	),
 	META_MERGE   => {
 		'meta-spec' => {
 			version => 2
