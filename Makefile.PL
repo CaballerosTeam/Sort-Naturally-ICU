@@ -3,6 +3,12 @@ use strict;
 use Config;
 use ExtUtils::MakeMaker;
 
+
+print "Check for ICU library installed...\n";
+my @args = (qw/pkg-config --libs icu-uc icu-io/);
+system(@args) == 0 or exit(1);
+
+
 # See lib/ExtUtils/MakeMaker.pm for details of how to influence
 # the contents of the Makefile that is written.
 WriteMakefile(

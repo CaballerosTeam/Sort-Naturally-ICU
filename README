@@ -12,6 +12,8 @@ alphabetical sorting, because it is more convenient for human understanding.
 
 INSTALL
 
+Prior to installation you MUST have installed ICU library.
+
    perl Makefile.PL
    make
    make test

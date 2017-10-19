@@ -10,20 +10,12 @@ aware sorting.
 
 ## INSTALL
 
-To install this module type the following, for Unix-like OS:
+Prior to installation you MUST have installed ICU library. To install this module type the following, for Unix-like OS:
 ```
    perl Makefile.PL
    make
    make test
    make install
-```
-
-or for Windows:
-```
-   perl Makefile.PL
-   dmake
-   dmake test
-   dmake install
 ```
 
 ## SYNOPSIS
@@ -211,7 +203,7 @@ before lower case letters, digits always come before letters.
   9x 14 foo fooa foolio Foolio foo12 foo12a Foo12a foo12z foo13a # Sort::Naturally
   9x 14 Foo12a Foolio foo foo12 foo12a foo12z foo13a fooa foolio # Sort::Naturally::XS
 ```
-* Due to a significant strain it is not recommended for sorting lists consisting of letters or digits only.
+* Due to a significant overhead it is not recommended for sorting lists consisting of letters or digits only.
 
 ## SEE ALSO
 
