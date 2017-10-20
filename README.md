@@ -31,7 +31,7 @@ Prior to installation you MUST have installed ICU library. To install this modul
 
   @result = sort {ncmp($a, $b)} @mixed_list; # same as ncmp, but argument pass explicitly
 
-  my $result = Sort::Naturally::ICU::sorted(\@mixed_list, locale => 'ru_RU.utf8'); # pass custom locale
+  my $result = Sort::Naturally::ICU::sorted(\@mixed_list, locale => 'en-CA-u-va-posix'); # pass custom locale
 ```
 
 ## DESCRIPTION
@@ -117,7 +117,7 @@ and `setlocale` has no effect on `ncmp` and `nsort`. The following example demon
   use POSIX;
   use Sort::Naturally::ICU;
 
-  my @list = ('a.'.'c', 'A'..'B');
+  my @list = ('a'..'c', 'A'..'C');
 
   my @result_std = sort @list;
   my @result_ncmp = sort {ncmp($a, $b)} @list;
@@ -144,7 +144,7 @@ argument. `locale` should be LDML locale identifier:
 ```perl
   use Sort::Naturally::ICU qw/sorted/;
 
-  my $list = ['a.'.'c', 'A'..'B'];
+  my $list = ['a'..'c', 'A'..'C'];
 
   my $result_us = sorted($list, locale => 'en-US-u-va-posix');
   # $result_us contains A, B, C, a, b, c
@@ -152,7 +152,6 @@ argument. `locale` should be LDML locale identifier:
   my $result_ca = sorted($list, locale => 'en-CA-u-va-posix');
   # $result_ca contains a, A, b, B, c, C
 ```
-
 
 ## EXPORT
 
@@ -162,7 +161,7 @@ By default the module exports `ncmp` and `nsort` subroutines.
 
 ```perl
   require Benchmark;
-  require Sort::Naturally::XS;
+  require Sort::Naturally::ICU;
   require Sort::Naturally;
 
   my @list = (
@@ -175,7 +174,7 @@ By default the module exports `ncmp` and `nsort` subroutines.
   );
 
   Benchmark::cmpthese(-3, {
-      my => sub { Sort::Naturally::XS::nsort(@list) },
+      my => sub { Sort::Naturally::ICU::nsort(@list) },
       other => sub { Sort::Naturally::nsort(@list) },
   });
 
@@ -186,7 +185,7 @@ By default the module exports `ncmp` and `nsort` subroutines.
   Benchmark::cmpthese(-10, {
       std   => sub { sort @list },
       other => sub { sort {Sort::Naturally::ncmp($a, $b)} @list },
-      my    => sub { sort {Sort::Naturally::XS::ncmp($a, $b)} @list },
+      my    => sub { sort {Sort::Naturally::ICU::ncmp($a, $b)} @list },
   });
 
   #            Rate other   std    my
@@ -201,13 +200,14 @@ By default the module exports `ncmp` and `nsort` subroutines.
 before lower case letters, digits always come before letters.
 ```
   9x 14 foo fooa foolio Foolio foo12 foo12a Foo12a foo12z foo13a # Sort::Naturally
-  9x 14 Foo12a Foolio foo foo12 foo12a foo12z foo13a fooa foolio # Sort::Naturally::XS
+  9x 14 Foo12a Foolio foo foo12 foo12a foo12z foo13a fooa foolio # Sort::Naturally::ICU
 ```
 * Due to a significant overhead it is not recommended for sorting lists consisting of letters or digits only.
 
 ## SEE ALSO
 
-* [module on CPAN](http://search.cpan.org/dist/Sort-Naturally-ICU/lib/Sort/Naturally/ICU.pm)
+* [module on PrePAN](http://prepan.org/module/nYfNhvSqeDp)
+* [Sort::Naturally::XS module](http://search.cpan.org/~serval/Sort-Naturally-XS-0.7.8/lib/Sort/Naturally/XS.pm)
 
 ## AUTHOR
 
